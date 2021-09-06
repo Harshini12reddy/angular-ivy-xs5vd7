@@ -1,1 +1,16 @@
-<my-app>loading</my-app>
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+search(searchForm: NgForm) {
+  if (searchForm.invalid) {
+    return;
+  }
+  this.store.dispatch({ type: SET_LOCATION, payload: this.loc });
+}
+this.loc$ = store.pipe(select('loc'));
+this.loc$.subscribe(loc => {
+  this.loc = loc;
+})
+this.loc$ = store.pipe(select('loc'));
+this.loc$.subscribe(loc => {
+  this.loc = loc;
+  this.searchWeather(loc);
+})
